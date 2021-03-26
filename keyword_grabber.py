@@ -44,7 +44,11 @@ def core(mode, output, limit):
         print(key)
         with open(output, 'a') as f:
             for x in key_:
-                f.write(x+"\n")
+                try:
+                    f.write(x+"\n")
+                except BaseException as e:
+                    print(e)
+                    continue
 
 if __name__ == "__main__":
     import argparse
